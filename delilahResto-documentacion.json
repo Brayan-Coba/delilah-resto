@@ -1,0 +1,1536 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "delilahResto",
+    "contact": {}
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "securityDefinitions": {},
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Crear usuario",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Crearusuario",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CrearusuarioRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Usuario registrado correctamente",
+            "headers": {}
+          },
+          "501": {
+            "description": "Ese usuario ya fue registrado",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Login",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Login",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/LoginclienteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Se ha logueado y generado token correctamente",
+            "headers": {}
+          },
+          "401": {
+            "description": "Credenciales no validas",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/productos": {
+      "post": {
+        "summary": "Agregar productos (admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Agregarproductos(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Agregarproductos%28admin%29Request"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Producto agregado correctamente",
+            "headers": {}
+          },
+          "501": {
+            "description": "Error al agregar producto",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/grupoprecio": {
+      "post": {
+        "summary": "Agregar grupos(admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Agregargrupos(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Agregargrupos%28admin%29Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Grupo de precios agregado correctamente",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "Obetener grupos(admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Obetenergrupos(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Grupos obtenidos correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/producto_grupo": {
+      "post": {
+        "summary": "Agregar producto_grupo(admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Agregarproducto_grupo(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Agregarproducto_grupo%28admin%29Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Producto x grupo agregado correctamente",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "Obtener producto_grupo(admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Obtenerproducto_grupo(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Productos x grupos obtenidos correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/precio": {
+      "post": {
+        "summary": "Agregar precios (admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Agregarprecios(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Agregarprecios%28admin%29Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Precio agregado correctamente",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "Obetener Precios(admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "ObetenerPrecios(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Precios obtenidos correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/metodopago": {
+      "post": {
+        "summary": "Agregar metodo de pago (admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Agregarmetododepago(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Agregarmetododepago%28admin%29Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metodo de pago obtenido correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/estadopedido": {
+      "post": {
+        "summary": "Agregar estados al pedido",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Agregarestadosalpedido",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AgregarestadosalpedidoRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Estado de pedido agregado correctamente",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "Obetener estados de pedidos",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Obetenerestadosdepedidos",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Estados de pedidos obtenidos correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/pedido": {
+      "post": {
+        "summary": "Crear pedido",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Crearpedido",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "example": [
+                {
+                  "metodo_de_pago": 1
+                },
+                {
+                  "producto": 8,
+                  "cantidad": 7
+                },
+                {
+                  "producto": 6,
+                  "cantidad": 3
+                },
+                {
+                  "producto": 1,
+                  "cantidad": 2
+                },
+                {
+                  "producto": 7,
+                  "cantidad": 1
+                }
+              ],
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CrearpedidoRequest"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pedido creado correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/pedido/1": {
+      "delete":{
+        "summary": "Borrar pedido (Admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "borrarpedido(Admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pedido eliminado correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/infouser": {
+      "post": {
+        "summary": "Agregar informacion de perfil",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Agregarinformaciondeperfil",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AgregarinformaciondeperfilRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informacion de perfil agregada correctamente",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "Obtener informacion perfil",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Obtenerinformacionperfil",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informacion de perfil obtenida correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/users": {
+      "get": {
+        "summary": "Lista de usuarios (Admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Listadeusuarios(Admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de usuarios obtenida correctamente",
+            "headers": {}
+          }
+        }
+      },
+      "put": {
+        "summary": "Actualizar datos usuario",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Actualizardatosusuario",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ActualizardatosusuarioRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Datos de usuario actualizados correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/productos": {
+      "get": {
+        "summary": "Obtener productos",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Obtenerproductos",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Productos obtenidos correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/pedidos": {
+      "get": {
+        "summary": "Obtener precios pedidos",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Obtenerpreciospedidos",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pedido obtenido correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/metodopago": {
+      "get": {
+        "summary": "Obetener metodos de pago",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Obetenermetodosdepago",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metodos de pago obtenidos correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/infousuarios": {
+      "get": {
+        "summary": "Obetener infotmacion perfil usuarios (admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Obetenerinfotmacionperfilusuarios(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informacion de usuario obtenida correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/users/1": {
+      "put": {
+        "summary": "Actualizar datos usuarios (admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Actualizardatosusuarios(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Actualizardatosusuarios%28admin%29Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Datos del usuario actualizados correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/5": {
+      "put": {
+        "summary": "Actualizar rol a admin (admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Actualizarrolaadmin(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rol del usuario acutalizado correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/productos/2": {
+      "put": {
+        "summary": "Actualizar productos (admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Actualizarproductos(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Actualizarproductos%28admin%29Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Productos actualizados correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/adm/precio": {
+      "put": {
+        "summary": "Actualizar precios (admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Actualizarprecios(admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Actualizarprecios%28admin%29Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Precio actualizado correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/adm/estadopedido": {
+      "put": {
+        "summary": "Actualizar estado a pedido",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Actualizarestadoapedido",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "default": "JSON",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ActualizarestadoapedidoRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Estado de pedido actualizado correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/productos/4": {
+      "delete": {
+        "summary": "Borrar rol de Admin (Admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "BorrarroldeAdmin(Admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Producto eliminado correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/users/4": {
+      "delete": {
+        "summary": "Borrar usuario (Admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "Borrarusuario(Admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuario eliminado correctamente",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CrearusuarioRequest": {
+      "title": "CrearusuarioRequest",
+      "example": {
+        "usuario": "Uno",
+        "correo": "uno@correo.com",
+        "contraseña": "Numero"
+      },
+      "type": "object",
+      "properties": {
+        "usuario": {
+          "type": "string"
+        },
+        "correo": {
+          "type": "string"
+        },
+        "contraseña": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "usuario",
+        "correo",
+        "contraseña"
+      ]
+    },
+    "LoginclienteRequest": {
+      "title": "LoginclienteRequest",
+      "example": {
+        "usuario": "Uno",
+        "contraseña": "Numero"
+      },
+      "type": "object",
+      "properties": {
+        "usuario": {
+          "type": "string"
+        },
+        "contraseña": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "usuario",
+        "contraseña"
+      ]
+    },
+    "LoginadminRequest": {
+      "title": "LoginadminRequest",
+      "example": {
+        "usuario": "Brayan",
+        "contraseña": "1234"
+      },
+      "type": "object",
+      "properties": {
+        "usuario": {
+          "type": "string"
+        },
+        "contraseña": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "usuario",
+        "contraseña"
+      ]
+    },
+    "Agregarproductos(admin)Request": {
+      "title": "Agregarproductos(admin)Request",
+      "example": {
+        "producto": "Camarones"
+      },
+      "type": "object",
+      "properties": {
+        "producto": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "producto"
+      ]
+    },
+    "Agregargrupos(admin)Request": {
+      "title": "Agregargrupos(admin)Request",
+      "example": {
+        "grupo": "Helados"
+      },
+      "type": "object",
+      "properties": {
+        "grupo": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "grupo"
+      ]
+    },
+    "Agregarproducto_grupo(admin)Request": {
+      "title": "Agregarproducto_grupo(admin)Request",
+      "example": {
+        "id_producto": 8,
+        "id_grupo": 4
+      },
+      "type": "object",
+      "properties": {
+        "id_producto": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id_grupo": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "id_producto",
+        "id_grupo"
+      ]
+    },
+    "Agregarprecios(admin)Request": {
+      "title": "Agregarprecios(admin)Request",
+      "example": {
+        "grupo": "Hielo extra",
+        "precio": 0,
+        "fecha_ini": "2021-02-24T05:00:00Z",
+        "fecha_fin": "2021-12-31T05:00:00Z"
+      },
+      "type": "object",
+      "properties": {
+        "grupo": {
+          "type": "string"
+        },
+        "precio": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fecha_ini": {
+          "type": "string"
+        },
+        "fecha_fin": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "grupo",
+        "precio",
+        "fecha_ini",
+        "fecha_fin"
+      ]
+    },
+    "Agregarmetododepago(admin)Request": {
+      "title": "Agregarmetododepago(admin)Request",
+      "example": {
+        "metodo_pago": "Tarjeta de credito"
+      },
+      "type": "object",
+      "properties": {
+        "metodo_pago": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "metodo_pago"
+      ]
+    },
+    "AgregarestadosalpedidoRequest": {
+      "title": "AgregarestadosalpedidoRequest",
+      "example": {
+        "estadoPedido": "Cancelado",
+        "esFinal": "S"
+      },
+      "type": "object",
+      "properties": {
+        "estadoPedido": {
+          "type": "string"
+        },
+        "esFinal": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "estadoPedido",
+        "esFinal"
+      ]
+    },
+    "CrearpedidoRequest": {
+      "title": "CrearpedidoRequest",
+      "example": {
+        "metodo_de_pago": 1
+      },
+      "type": "object",
+      "properties": {
+        "metodo_de_pago": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "producto": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cantidad": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "AgregarinformaciondeperfilRequest": {
+      "title": "AgregarinformaciondeperfilRequest",
+      "example": {
+        "Nombre": "Numero Dos",
+        "Celular": "2222222222",
+        "Direccion": "Nada ingenioso que agregar"
+      },
+      "type": "object",
+      "properties": {
+        "Nombre": {
+          "type": "string"
+        },
+        "Celular": {
+          "type": "string"
+        },
+        "Direccion": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Nombre",
+        "Celular",
+        "Direccion"
+      ]
+    },
+    "ActualizardatosusuarioRequest": {
+      "title": "ActualizardatosusuarioRequest",
+      "example": {
+        "usuario": "Brayan",
+        "contraseña": "1234"
+      },
+      "type": "object",
+      "properties": {
+        "usuario": {
+          "type": "string"
+        },
+        "contraseña": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "usuario",
+        "contraseña"
+      ]
+    },
+    "Actualizardatosusuarios(admin)Request": {
+      "title": "Actualizardatosusuarios(admin)Request",
+      "example": {
+        "usuario": "Brayan",
+        "contraseña": "1234"
+      },
+      "type": "object",
+      "properties": {
+        "usuario": {
+          "type": "string"
+        },
+        "contraseña": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "usuario",
+        "contraseña"
+      ]
+    },
+    "Actualizarproductos(admin)Request": {
+      "title": "Actualizarproductos(admin)Request",
+      "example": {
+        "producto": "Coca Cola"
+      },
+      "type": "object",
+      "properties": {
+        "producto": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "producto"
+      ]
+    },
+    "Actualizarprecios(admin)Request": {
+      "title": "Actualizarprecios(admin)Request",
+      "example": {
+        "grupo": "Helados",
+        "precio": 5000,
+        "fecha_ini": "2021-02-24T05:00:00Z",
+        "fecha_fin": "2021-12-31T05:00:00Z"
+      },
+      "type": "object",
+      "properties": {
+        "grupo": {
+          "type": "string"
+        },
+        "precio": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fecha_ini": {
+          "type": "string"
+        },
+        "fecha_fin": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "grupo",
+        "precio",
+        "fecha_ini",
+        "fecha_fin"
+      ]
+    },
+    "ActualizarestadoapedidoRequest": {
+      "title": "ActualizarestadoapedidoRequest",
+      "example": {
+        "id_pedido": 2,
+        "estado_pedido": 3
+      },
+      "type": "object",
+      "properties": {
+        "id_pedido": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "estado_pedido": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "id_pedido",
+        "estado_pedido"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "API Delilah Resto",
+      "description": ""
+    }
+  ]
+}
