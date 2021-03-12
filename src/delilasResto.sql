@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `db_delilah_resto`.`DetallePedido` (
   CONSTRAINT `fk_DetallePedido_Pedido1`
     FOREIGN KEY (`Pedido_id`)
     REFERENCES `db_delilah_resto`.`Pedido` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_DetallePedido_Producto1`
     FOREIGN KEY (`Producto`)
@@ -387,5 +387,15 @@ select id from infousuario where Usuario_id = 3;
 select id from metodospago where MetodosPago = "Efectivo";
 
 select Max(id) as ejemplo from producto;
-*/
 
+alter table detallepedido drop constraint fk_DetallePedido_Pedido1;
+
+alter table detallepedido 
+	add CONSTRAINT fk_DetallePedido_Pedido1
+    FOREIGN KEY (Pedido_id)
+    REFERENCES db_delilah_resto.Pedido (id)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION;
+    
+    delete from pedido where id = 5;
+*/

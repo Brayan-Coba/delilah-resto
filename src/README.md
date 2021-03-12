@@ -12,5 +12,5 @@ Pasos:
 - Para agregar precio requiere tener el grupo creado e ingresar tiempos como se describe en el ejemplo (los tiempos son para una funcionalidad futura de cambios   dinamicos de precio)
 - Al agregar estados tengan en cuenta que hay estados finales (esFinal : S) o estados no finales (esFinal : N) los estados finales no se pueden ser cambiados
 - Para ver la informacion completa de productos debe crear el producto, crear su grupo, asociar producto x grupo y darle precio a ese grupo.
-- Para crear un pedido debe diligenciar la informacion de perfil donde se encuentra la direccion y tener los productos, grupos y precios correctamente asociados.
+- Para crear un pedido debe diligenciar la informacion de perfil donde se encuentra la direccion y tener los productos, grupos y precios correctamente asociados, adicionalmente tener algun medio de pago y un estado incial Creado agregado.
 - Al diligenciar informacion de perfil debe agregar el token del usuario.

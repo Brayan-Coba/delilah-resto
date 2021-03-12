@@ -612,6 +612,34 @@
         }
       }
     },
+    "/pedido/1": {
+      "delete":{
+        "summary": "Borrar pedido (Admin)",
+        "tags": [
+          "API Delilah Resto"
+        ],
+        "operationId": "borrarpedido(Admin)",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pedido eliminado correctamente",
+            "headers": {}
+          }
+        }
+      }
+    },
     "/infouser": {
       "post": {
         "summary": "Agregar informacion de perfil",
@@ -1097,7 +1125,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Estado de pediod actualizado correctamente",
+            "description": "Estado de pedido actualizado correctamente",
             "headers": {}
           }
         }
