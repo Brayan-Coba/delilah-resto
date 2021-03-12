@@ -1,0 +1,16 @@
+Pasos:
+- Abrir el archivo delilasResto.sql y ejecutar el script para crear la base de datos.
+- Abrir los archivos en Visual code y y en el apartado de config.js configurar los datos de la base de datos.
+- Instalar las dependiencias del package.js
+- Abrir consola dentro del visual y ejecutar el comando npm run dev para montar el servidor local por defecto de usa el puerto 3000
+- En un navegador abirir http://localhost:3000 y verificar que funcione correctamente.
+- Entrar en http://localhost:3000/api-docs/ para ver la documentacion de las funciones
+- Usar la funcion de actualizar datos de usuario admin que se genero directo a la base de datos con el token   eyJhbGciOiJIUzI1NiJ9.ZXNwaXNjb0Bjb3JyZW8uY29t.3xsKEkLcL6vBnPskkYpHn9q5rVMvIKDS6X8dhDsH2L0 para que guarde la contraseña segura en base de datos, a partir de este   punto ya puede usar el post Login para generar tokens de admin
+- Puede crear Usuarios y loguearlos para generar token de usuario 
+- Ya puede usar todas las funciones que indican (admin) generando el token de admin
+- Para agregar producto x grupo requiere tener el producto y grupo que va a asociar ya creado.
+- Para agregar precio requiere tener el grupo creado e ingresar tiempos como se describe en el ejemplo (los tiempos son para una funcionalidad futura de cambios   dinamicos de precio)
+- Al agregar estados tengan en cuenta que hay estados finales (esFinal : S) o estados no finales (esFinal : N) los estados finales no se pueden ser cambiados
+- Para ver la informacion completa de productos debe crear el producto, crear su grupo, asociar producto x grupo y darle precio a ese grupo.
+- Para crear un pedido debe diligenciar la informacion de perfil donde se encuentra la direccion y tener los productos, grupos y precios correctamente asociados.
+- Al diligenciar informacion de perfil debe agregar el token del usuario.
